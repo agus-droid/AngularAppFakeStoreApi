@@ -13,6 +13,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { ErrorComponent } from './pages/error/error.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NgbModule,
     NgbCollapseModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

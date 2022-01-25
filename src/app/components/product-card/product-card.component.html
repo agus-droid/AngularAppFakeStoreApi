@@ -1,1 +1,9 @@
-<p>product-card works!</p>
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="{{ product.image }}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{ product.title }}</h5>
+    <p class="card-text">{{ product.description }}</p>
+    <h5 class="text-danger text-center">$ {{ product.price }}</h5>
+    <a class="btn btn-primary" (click)="onClick()">Ver</a>
+  </div>
+</div>
