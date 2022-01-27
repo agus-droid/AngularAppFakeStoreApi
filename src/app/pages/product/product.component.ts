@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/class/product';
 import { ProductService } from 'src/app/services/product.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-product',
@@ -15,7 +16,8 @@ export class ProductComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -30,11 +32,13 @@ export class ProductComponent implements OnInit {
         console.log(data);
         this.loading = false;
         this.products = data;
+        this.toastr.success('Hello world!', 'Toastr fun!');
       },
       (error: any) => {
         console.log(error);
         this.loading = false;
         this.error = true;
+        this.toastr.error('Ha ocurrido un error', 'Error');
       }
     );
   }
