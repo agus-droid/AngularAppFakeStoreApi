@@ -7,7 +7,7 @@ import { Product } from '../class/product';
   providedIn: 'root'
 })
 export class ProductService {
-  private API_URL = 'https://fakestoreapi.com/products321/'
+  private API_URL = 'https://fakestoreapi.com/products/'
   constructor(
     private http: HttpClient
   ) { }
