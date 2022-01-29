@@ -5,11 +5,11 @@ import { ProductService } from 'src/app/services/product.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'app-product',
-  templateUrl: './product.component.html',
-  styleUrls: ['./product.component.scss']
+  selector: 'app-products',
+  templateUrl: './products.component.html',
+  styleUrls: ['./products.component.scss']
 })
-export class ProductComponent implements OnInit {
+export class ProductsComponent implements OnInit {
   products: Product[] = [];
   loading = true;
   error = false;
@@ -21,27 +21,25 @@ export class ProductComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getProducts();
+    this.getAll();
   }
 
-  getProducts() {
+  getAll() {
     this.loading = true;
     this.error = false;
-    this.productService.getProducts().subscribe(
-      (data: any) => {
-        console.log(data);
+    this.productService.getAll().subscribe({
+      next: (products: Product[]) => {
+        this.products = products;
         this.loading = false;
-        this.products = data;
         this.toastr.success('Hello world!', 'Toastr fun!');
       },
-      (error: any) => {
-        console.log(error);
-        this.loading = false;
+      error: () => {
         this.error = true;
-        this.toastr.error('Ha ocurrido un error', 'Error');
+        this.loading = false;
+        this.toastr.error('Error loading products');
       }
-    );
-  }
+    });
+  };
 
   showProduct(product: Product) {
     this.router.navigate(['/product', product.id]);

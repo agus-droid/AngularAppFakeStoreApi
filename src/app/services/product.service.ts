@@ -12,11 +12,23 @@ export class ProductService {
     private http: HttpClient
   ) { }
 
-  getProducts(): Observable<Product[]> {
+  getAll(): Observable<Product[]> {
     return this.http.get<Product[]>(this.API_URL);
   }
 
-  getProduct(id: number): Observable<Product> {
+  getOne(id: number): Observable<Product> {
     return this.http.get<Product>(this.API_URL + id);
+  }
+
+  add(product: Product): Observable<Product> {
+    return this.http.post<Product>(this.API_URL, product);
+  }
+
+  update(product: Product): Observable<Product> {
+    return this.http.put<Product>(this.API_URL + product.id, product);
+  }
+
+  remove(id: number): Observable<Product> {
+    return this.http.delete<Product>(this.API_URL + id);
   }
 }

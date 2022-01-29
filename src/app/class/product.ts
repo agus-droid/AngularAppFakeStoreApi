@@ -1,3 +1,5 @@
+import { Rating } from "./rating";
+
 export class Product {
   id: number;
   title: string;
@@ -5,7 +7,7 @@ export class Product {
   description: string;
   category: string;
   image: string;
-  rating: Object;
+  rating: Rating;
   constructor() {
     this.id = 0;
     this.title = "";
@@ -13,9 +15,6 @@ export class Product {
     this.description = "";
     this.category = "";
     this.image = "";
-    this.rating = {
-      rate: 0,
-      count: 0
-    };
+    this.rating = new Rating();
   }
 }
