@@ -8,7 +8,7 @@ import { User } from 'src/app/class/user';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  user: User = new User("", "");
+  user: User = new User();
 
   constructor() { }
 
@@ -16,7 +16,6 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log("submit");
     console.log(this.user)
   }
 

@@ -20,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CartService } from './services/cart.service';
 import { ProductService } from './services/product.service';
 import { UserService } from './services/user.service';
+import { ProductComponent } from './pages/product/product.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { UserService } from './services/user.service';
     CartComponent,
     LoginComponent,
     ProductCardComponent,
-    ErrorComponent
+    ErrorComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
