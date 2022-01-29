@@ -1,9 +1,25 @@
-<div class="mt-5">
+<div class="container mt-5">
   <div class="d-flex justify-content-center">
     <div class="spinner-border text-primary" *ngIf="loading" role="status"></div>
-    <p class="text-danger" *ngIf="error">Ocurrio un error!</p>
   </div>
-  <div class="card-deck">
-    <product-card *ngFor="let product of products" [product]="product" (onProduct)="showProduct($event)" ></product-card>
+  <div *ngIf="!loading" id="demo" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+          <div class="carousel-item active">
+              <div class="card">
+                  <div class="row">
+                      <div class="col-md-6 text-center align-self-center"> <img class="img-fluid" src="{{ product.image }}"> </div>
+                      <div class="col-md-6 info">
+                          <div class="row title">
+                              <div class="col">
+                                  <h2>{{ product.title }}</h2>
+                              </div>
+                          </div>
+                          <p>{{ product.description }}</p>
+                          <div class="row text-danger"><b>${{ product.price }}</b></div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
   </div>
 </div>

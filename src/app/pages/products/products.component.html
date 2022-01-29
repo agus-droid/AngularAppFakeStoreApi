@@ -1,0 +1,9 @@
+<div class="mt-5">
+  <div class="d-flex justify-content-center">
+    <div class="spinner-border text-primary" *ngIf="loading" role="status"></div>
+    <p class="text-danger" *ngIf="error">Ocurrio un error!</p>
+  </div>
+  <div class="card-deck">
+    <product-card *ngFor="let product of products" [product]="product" (onProduct)="showProduct($event)" ></product-card>
+  </div>
+</div>

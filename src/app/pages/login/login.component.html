@@ -1,5 +1,5 @@
 <div class="container" style="max-width: 50rem;">
-  <form class="mt-5" #prodForm="ngForm" (ngSubmit)="onSubmit()">
+  <form class="mt-5" #logForm="ngForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label>Email address</label>
       <input type="email" [(ngModel)]="user.email" #email="ngModel" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" name="email">
