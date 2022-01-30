@@ -31,6 +31,10 @@ export class UserService {
     return this.cookies.get('token');
   }
 
+  logout(): void {
+    this.cookies.delete('token');
+  }
+
   getUserLogged(){
     const token = this.getToken();
 
