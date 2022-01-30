@@ -27,7 +27,9 @@ export class LoginComponent implements OnInit {
       next: (data: any) => {
         this.toastr.success('Login successful', 'Success');
         this.userService.setToken(data.token);
-        this.router.navigate(['/']);
+        this.router.navigateByUrl('/').then(() => {
+          window.location.reload()
+        });
       },
       error: () => {
         this.toastr.error('Username or password is incorrect', 'Error');
